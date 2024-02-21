@@ -286,7 +286,7 @@
 <!-- Mirrored from el-dni.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 21 Feb 2024 14:46:46 GMT -->
 </html>
 
-<script>
+<!--script>
     $(document).ready(function() {
 
         $('#search').submit(function (e) {
@@ -295,18 +295,18 @@
             $.ajax({
                 type: 'POST',
                 url: 'search.php',
-                data: {
+                /*data: {
                     dni: $('#dni').val(),
                     tipo: 1,
                 }
             })
                 .done((data) => {
                   var datos =  JSON.parse(data)
-                    $('#numero').html(datos.data.numero)
+                    $('#numero').html(datos.data.numeroDocumento)
                     $('#nombres').html(datos.data.nombres)
-                    $('#ape_pat').html(datos.data.apellido_paterno)
-                    $('#ape_mat').html(datos.data.apellido_materno)
-                    $('#dig_ver').html(datos.data.codigo_verificacion)
+                    $('#ape_pat').html(datos.data.apellidoPaterno)
+                    $('#ape_mat').html(datos.data.apellidoMaterno)
+                    $('#dig_ver').html(datos.data.digitoVerificador)
 
 
                 })
@@ -315,7 +315,36 @@
                 })
                 .always(() => {
                     console.log('always called');
-                });
+                });*/
         });
     });
+</script-->
+<script>
+  $("#search").submit(function(){
+
+var dni=$("#dni").val();
+
+
+$.ajax({           
+  type:"POST",
+  url: "search.php",
+  data: 'dni='+dni,
+  dataType: 'json',
+  success: function(data) {
+      if(data==1)
+      {
+          alert('El DNI tiene que tener 8 digitos');
+      }
+      else{
+          console.log(data);
+          $('#numero').html(datos.data.numeroDocumento)
+          $('#nombres').html(datos.data.nombres)
+          $('#ape_pat').html(datos.data.apellidoPaterno)
+          $('#ape_mat').html(datos.data.apellidoMaterno)
+          $('#dig_ver').html(datos.data.digitoVerificador)
+
+      }
+  }
+});
+});
 </script>

@@ -1,7 +1,7 @@
 <?php
 // Datos
 $token = 'apis-token-7490.S3WzcFveZz7CybUFHPxJXroAYarvqY8r';
-$dni = $_POST["dni"];
+$dni = '72125698';
 
 // Iniciar llamada a API
 $curl = curl_init();
@@ -29,7 +29,6 @@ $response = curl_exec($curl);
 
 curl_close($curl);
 // Datos listos para usar
-/*$persona = json_decode($response);
-var_dump($persona);*/
-echo $response;
+$persona = json_decode($response);
+var_dump($persona);
 ?>
