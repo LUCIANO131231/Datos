@@ -20,15 +20,9 @@
 
 
 <style>
-    .footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-}
-            .adcenter { width: 300px; height: 100px; }
-            @media(min-width: 840px) { .adcenter { width: 300px; height: 250px; } }
-        </style>
+    .adcenter { width: 300px; height: 100px; }
+    @media(min-width: 840px) { .adcenter { width: 300px; height: 250px; } }
+</style>
 <script async src="../../securepubads.g.doubleclick.net/tag/js/f.txt"></script>
 <script> 
     window.googletag = window.googletag || {cmd: []}; 
@@ -39,6 +33,18 @@
     }); 
     </script>
 <style type="text/css">
+        .containere1 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 75vh;
+        }
+        .footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        }
         /* .no_click {
             position: relative;
             cursor: not-allowed;
@@ -90,118 +96,90 @@
         <![endif]-->
 </head>
 <body>
-<header class="bg-primary">
-<div class="navbar container">
-<div class="navbar-section">
-<a href="../index.html" class="navbar-brand mr-2" title="Inicio de buscador">
+    <header class="bg-primary">
+        <div class="navbar container">
+            <div class="navbar-section">
+                <a href="../index.html" class="navbar-brand mr-2" title="Inicio de buscador">
+                    <h1><img alt="Buscar DNI" src="../2020/img/el-dni-logo.svg"></h1>
+                </a>
+            </div>
+            <nav class="nav-menu col-6 col-md-12">
+                <ul class="tab tab-block ">
+                    <li class="tab-item">
+                        <a href="buscar-datos-por-dni.html">Buscar Datos por DNI</a>
+                    </li>
+                    <li class="tab-item">
+                        <a href="buscar-por-nombres.html">Buscar DNI por Nombres</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-<h1><img alt="Buscar DNI" src="../2020/img/el-dni-logo.svg"></h1>
-</a>
-
-</div>
-<nav class="nav-menu col-6 col-md-12">
-<ul class="tab tab-block ">
-<li class="tab-item">
-<a href="buscar-datos-por-dni.html">Buscar Datos por DNI</a>
-</li>
-<li class="tab-item">
-<a href="buscar-por-nombres.html">Buscar DNI por Nombres</a>
-</li>
-
-</ul>
-</nav>
-<div class="btn-noticias">
-<a href="../index.html" class="btn" target="_blank"><span>Consultas</span> <img alt="Flecha Derecha" src="../2020/img/forward.svg"></a>
-</div>
-</div>
-</header>
-<aside class="ad" id="ad_1">
-<div class="div_ad">
-<style>
-                .adheader { width: 320px; height: 50px; margin: 5px 0 5px 0;}
-                @media(min-width: 460px) { .adheader { width: 468px; height: 60px; } }
-                @media(min-width: 720px) { .adheader { width: 728px; height: 90px; } }
-            </style>
-<ins class="adsbygoogle adheader" style="display:inline-block" data-ad-client="ca-pub-8995586921396350" data-ad-slot="4927582454"></ins>
-<script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-</div>
-</aside>
-<main class="container container-padding clearfix">
-<div id="div-left">
-<section class="columns" id="dni-nombres">
-<div id="column-left" class="column column-np">
-<div class="column column-np col-12">
-<div class="card text-center">
-<div class="card-header"><img src="../2020/img/dni-to-name.svg" width="160"></div>
-<div class="card-body">
-<h3>Buscar por RUC 10</h3>
-<div class="small">
-<small>Escribe un RUC 10 para mostrar sus nombres</small>
-</div>
-</div>
-<form autocomplete="on" action="https://eldni.com/pe/buscar-nombres-por-ruc-10" id="buscar-por-ruc10" method="post" enctype="multipart/form-data" onsubmit="disableButton('#btn-buscar-por-ruc10')">
-<input type="hidden" name="_token" value="zsHbe9duzA0RhwJNG4XBi676iGDe16Jy21IwUYJC">
-<div class="form-group" id="input-min">
-<input class="form-input" type="text" name="ruc10" id="ruc10" placeholder="RUC 10">
-</div>
-<div class="form-group">
-<button type="submit" class="btn btn-success" id="btn-buscar-por-ruc10" form="buscar-por-ruc10">Buscar nombres</button>
-</div>
-</form>
-</div>
-</div>
-<aside class="ad">
-<div class="div_ad">
-<ins class="adsbygoogle adcenter" style="display:inline-block" data-ad-client="ca-pub-8995586921396350" data-ad-slot="4927582454"></ins>
-<script>
+<main class="containere1">
+    <div id="div-left">
+        <section class="columns" id="dni-nombres">
+            <div id="column-left" class="column column-np">
+                <div class="column column-np col-12">
+                    <div class="card text-center">
+                        <div class="card-header"><img src="../2020/img/dni-to-name.svg" width="160"></div>
+                        <div class="card-body">
+                            <h3>Buscar por RUC 10</h3>
+                            <div class="small">
+                                <small>Escribe un RUC 10 para mostrar sus nombres</small>
+                            </div>
+                        </div><br>
+                        <form autocomplete="on" action="https://eldni.com/pe/buscar-nombres-por-ruc-10" id="buscar-por-ruc10" method="post" enctype="multipart/form-data" onsubmit="disableButton('#btn-buscar-por-ruc10')">
+                            <input type="hidden" name="_token" value="zsHbe9duzA0RhwJNG4XBi676iGDe16Jy21IwUYJC">
+                            <div class="form-group" id="input-min">
+                                <input class="form-input" type="text" name="ruc10" id="ruc10" placeholder="RUC 10">
+                            </div><br>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-success" id="btn-buscar-por-ruc10" form="buscar-por-ruc10">Buscar nombres</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div id="column-center" class="column column-np">
+                <div class="column col-md-12">
+                    <h2 class="text-center" id="title-center-h2">Escriba el RUC 10 en "Buscar por RUC 10" para ver los nombres y apellidos.</h2>
+                    <div style="margin:5px 0 5px 0">
+                        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8995586921396350" data-ad-slot="4927582454" data-ad-format="auto" data-full-width-responsive="true">
+                        </ins>
+                        <script>
                             (adsbygoogle = window.adsbygoogle || []).push({});
                         </script>
-</div>
-</aside>
-</div>
-<div id="column-center" class="column column-np">
-<div class="column col-md-12">
-<h2 class="text-center" id="title-center-h2">Escriba el RUC 10 en "Buscar por RUC 10" para ver los nombres y apellidos.</h2>
-
-<div style="margin:5px 0 5px 0">
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8995586921396350" data-ad-slot="4927582454" data-ad-format="auto" data-full-width-responsive="true">
-</ins>
-<script>
-                                    (adsbygoogle = window.adsbygoogle || []).push({});
-                                </script>
-</div>
-</div>
-<div id="news_center">
-</div>
-</div>
-</section>
-</div>
-<div id="div-right">
-<div id="news_sidebar">
-<div class="news-header">
-<h3>🔍 Consultas</h3> <sup class="label label-success">Nuevo</sup>
-</div>
-<ul>
-<li>
-<a href="buscar-datos-por-dni.html">🔍 Buscar Datos por DNI</a>
-</li>
-<li>
-<a href="buscar-por-dni.html">📜 Buscar nombres y apellidos por DNI</a>
-</li>
-<li>
-<a href="obtener-digito-verificador-del-dni.html">🔢 Obtener dígito de verificación del DNI</a>
-</li>
-<li>
-<a href="consultar-ruc-10-por-dni.html">📢 Obtener RUC 10 por DNI</a>
-</li>
-<li>
-<a href="buscar-nombres-por-ruc-10.html">📇 Buscar nombres y apellidos por RUC 10</a>
-</li>
-</ul>
- </div>
-</div>
+                    </div>
+                </div>
+                <div id="news_center"></div>
+            </div>
+        </section>
+    </div>
+    <div id="div-right" style="margin-left: 15px; margin-bottom: 24px;">
+        <div id="news_sidebar">
+            <div class="news-header">
+            <h5>🔍 Otras Consultas</h5>
+            </div>
+            <ul>
+                <li>
+                    <a href="buscar-datos-por-dni.html">Buscar Datos por DNI</a>
+                </li>
+                <li>
+                    <a href="buscar-por-dni.html">Buscar nombres y apellidos por DNI</a>
+                </li>
+                <li>
+                    <a href="obtener-digito-verificador-del-dni.html">Obtener dígito de verificación del DNI</a>
+                </li>
+                <li>
+                    <a href="consultar-ruc-10-por-dni.html">Obtener RUC 10 por DNI</a>
+                </li>
+                <li>
+                    <a href="buscar-nombres-por-ruc-10.html">Buscar nombres y apellidos por RUC 10</a>
+                </li>
+            </ul>
+        </div>
+    </div>
 </main>
 <footer class="bg-primary footer">
     <div class="container">
