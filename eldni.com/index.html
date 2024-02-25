@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="utf-8">
+<title>Buscar DNI por Nombres - Reniec Datos Perú</title>
+<meta content="Buscar datos de personas en Perú con el número de DNI, datos validados en Reniec." name="description">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="stylesheet" type="text/css" href="2020/amp-spectre/spectre.min4290.css?v=25">
+<link rel="stylesheet" type="text/css" href="2020/css/add-css4290.css?v=25">
+
+<style type="text/css">
+        /* .no_click {
+            position: relative;
+            cursor: not-allowed;
+        }
+        .no_click::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 100;
+        }
+        .no_click .btn {
+            -webkit-filter: opacity(.7);
+            filter: opacity(.7);
+        } */
+        /*BUTTON CLEAR INPUT*/
+        .input-clear {
+            position: relative;
+        }
+        .input-clear i {
+            background: #FFF;
+            cursor: pointer;
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            display: block;
+            padding: 8px;
+            border-radius: 50%;
+            line-height: 0;
+        }
+        /* AD */
+        .ad {
+            line-height: 0;
+            text-align: center;
+        }
+        .div_ad {
+            display: inline-block;
+
+        }
+        #ad_1 {
+            background: #666;
+        }
+        #title-center-h2::before {
+            content: "☝️ "
+        }
+        @media(min-width: 840px) {
+            #title-center-h2::before {
+                content: "👈 "
+            }
+        }
+    </style>
+</head>
+<body>
+<header class="bg-primary">
+<div class="navbar container">
+<div class="navbar-section">
+<a href="index.html" class="navbar-brand mr-2" title="Inicio de buscador">
+
+<h1><img alt="Buscar DNI" src="2020/img/el-dni-logo.svg"></h1>
+</a>
+
+</div>
+<nav class="nav-menu col-6 col-md-12">
+<ul class="tab tab-block ">
+<li class="tab-item">
+<a href="pe/buscar-datos-por-dni.php">Buscar Datos por DNI</a>
+</li>
+<li class="tab-item">
+<a href="pe/buscar-por-nombres.html">Buscar DNI por Nombres</a>
+</li>
+
+</ul>
+</nav>
+<div class="btn-noticias">
+<a href="index.html" class="btn" target="_blank"><span>Consultas</span> <img alt="Flecha Derecha" src="2020/img/forward.svg"></a>
+</div>
+</div>
+</header>
+<main class="container container-padding">
+<section class="columns">
+<div class="column col-4 col-md-12">
+<div class="card text-center">
+<div class="card-header"><img src="2020/img/dni-to-name.svg" width="160"></div>
+<div class="card-body">
+<h4>Buscar datos por DNI</h4>
+<div class="small">
+<small>Ingresa el DNI para saber los datos</small>
+</div>
+</div>
+<form autocomplete="on" action="pe/buscar-datos-por-dni.php" id="buscar-datos-por-dni" method="post" enctype="multipart/form-data" onsubmit="disableButton('#btn-buscar-datos-por-dni')">
+<div class="form-group" id="input-min">
+<input class="form-input" type="text" name="dni" id="dni" placeholder="Número de DNI">
+</div>
+<div class="form-group">
+<button type="submit" class="btn btn-success" id="btn-buscar-datos-por-dni" form="buscar-datos-por-dni">Buscar datos</button>
+</div>
+</form>
+</div>
+</div>
+<div class="column col-4 col-md-12">
+<div class="card text-center">
+<div class="card-header"><img src="2020/img/name-to-dni.svg" width="160"></div>
+<div class="card-body">
+<h4>Buscar DNI por Nombres</h4>
+<div class="small">
+<mark>🚫 Servicio inhabilitado.</mark>
+<small class="block">Solo aparecerá los 5 primeros digitos del DNI*.</small>
+</div>
+</div>
+<form autocomplete="on" action="https://eldni.com/pe/buscar-por-nombres" id="buscar-por-nombres" method="post" enctype="multipart/form-data" onsubmit="disableButton('#btn-buscar-por-nombres')">
+<input type="hidden" name="_token" value="XAID9gKn79lO3zbrccjX7K9UnIbJVrghwssDgzAV">
+<div class="form-group">
+<input type="text" class="form-input" name="nombres" id="nombres" placeholder="Nombres">
+</div>
+<div class="form-group">
+<input type="text" class="form-input" name="apellido_p" id="apellido_p" placeholder="Apellido Paterno">
+</div>
+<div class="form-group">
+<input type="text" class="form-input" name="apellido_m" id="apellido_m" placeholder="Apellido Materno">
+</div>
+<div class="form-group">
+<button type="submit" class="btn btn-success" id="btn-buscar-por-nombres" form="buscar-por-nombres">Buscar DNI</button>
+</div>
+</form>
+</div>
+</div>
+<div class="column col-4 col-md-12">
+<div class="card text-center">
+<div class="card-header"><img src="2020/img/dni-to-name.svg" width="160"></div>
+<div class="card-body">
+<h4>Buscar nombres por DNI</h4>
+<div class="small">
+<small>Escribe un número para mostrar sus nombres</small>
+</div>
+</div>
+<form autocomplete="on" action="https://eldni.com/pe/buscar-datos-por-dni" id="buscar-por-dni" method="post" enctype="multipart/form-data" onsubmit="disableButton('#btn-buscar-por-dni')">
+<input type="hidden" name="_token" value="XAID9gKn79lO3zbrccjX7K9UnIbJVrghwssDgzAV">
+<div class="form-group" id="input-min">
+<input class="form-input" type="text" name="dni" id="dni" placeholder="Número de DNI">
+</div>
+<div class="form-group">
+<button type="submit" class="btn btn-success" id="btn-buscar-por-dni" form="buscar-por-dni">Buscar nombres</button>
+</div>
+</form>
+</div>
+</div>
+</section>
+</main>
+<div class="container container-padding">
+<section class="columns">
+<div class="column col-4 col-md-12">
+<div class="card text-center">
+<div class="card-header"><img src="2020/img/dni-to-name.svg" width="160"></div>
+<div class="card-body">
+<h4>Obtener dígito verificador</h4>
+<div class="small">
+<small>Escribe el DNI para encontrar el dígito verificador</small>
+</div>
+</div>
+<form autocomplete="on" action="https://eldni.com/pe/obtener-digito-verificador-del-dni" id="buscar-por-dniveri" method="post" enctype="multipart/form-data" onsubmit="disableButton('#btn-buscar-por-dniveri')">
+<input type="hidden" name="_token" value="XAID9gKn79lO3zbrccjX7K9UnIbJVrghwssDgzAV">
+<div class="form-group" id="input-min">
+<input class="form-input" type="text" name="dniveri" id="dniveri" placeholder="DNI">
+</div>
+<div class="form-group">
+<button type="submit" class="btn btn-success" id="btn-buscar-por-dniveri" form="buscar-por-dniveri">Buscar dígito verificador</button>
+</div>
+</form>
+</div>
+</div>
+<div class="column col-4 col-md-12">
+<div class="card text-center">
+<div class="card-header"><img src="2020/img/dni-to-name.svg" width="160"></div>
+<div class="card-body">
+<h4>Obtener el RUC 10 por DNI</h4>
+<div class="small">
+<small>Escribe el DNI para consultar su RUC 10</small>
+</div>
+</div>
+<form autocomplete="on" action="https://eldni.com/pe/consultar-ruc-10-por-dni" id="buscar-por-dniruc10" method="post" enctype="multipart/form-data" onsubmit="disableButton('#btn-buscar-por-dniruc10')">
+<input type="hidden" name="_token" value="XAID9gKn79lO3zbrccjX7K9UnIbJVrghwssDgzAV">
+<div class="form-group" id="input-min">
+<input class="form-input" type="text" name="dniruc10" id="dniruc10" placeholder="DNI">
+</div>
+<div class="form-group">
+<button type="submit" class="btn btn-success" id="btn-buscar-por-dniruc10" form="buscar-por-dniruc10">Buscar RUC 10</button>
+</div>
+</form>
+</div>
+</div>
+<div class="column col-4 col-md-12">
+<div class="card text-center">
+<div class="card-header"><img src="2020/img/dni-to-name.svg" width="160"></div>
+<div class="card-body">
+<h4>Buscar nombres por RUC 10</h4>
+<div class="small">
+<small>Escribe un RUC 10 para mostrar sus nombres</small>
+</div>
+</div>
+<form autocomplete="on" action="https://eldni.com/pe/buscar-nombres-por-ruc-10" id="buscar-por-ruc10" method="post" enctype="multipart/form-data" onsubmit="disableButton('#btn-buscar-por-ruc10')">
+<input type="hidden" name="_token" value="XAID9gKn79lO3zbrccjX7K9UnIbJVrghwssDgzAV">
+<div class="form-group" id="input-min">
+<input class="form-input" type="text" name="ruc10" id="ruc10" placeholder="RUC 10">
+</div>
+<div class="form-group">
+<button type="submit" class="btn btn-success" id="btn-buscar-por-ruc10" form="buscar-por-ruc10">Buscar nombres</button>
+</div>
+</form>
+</div>
+</div>
+</section>
+</div>
+<div class="container container-padding">
+<section class="columns">
+<div class="column col-4 col-md-12">
+<div class="card text-center">
+<div class="card-header"><img src="2020/img/name-to-dni.svg" width="160"></div>
+<div class="card-body">
+<h4>¿Cuántos se llaman como yo?</h4>
+<div class="small">
+<small>Solo escribe tu "nombre" (no apellidos)</small>
+</div>
+</div>
+<form autocomplete="on" action="https://eldni.com/pe/cuantos-se-llaman-como-yo" id="cuantos-se-llaman-como-yo" method="post" enctype="multipart/form-data" onsubmit="disableButton('#btn-cuantos-se-llaman-como-yo')">
+<input type="hidden" name="_token" value="XAID9gKn79lO3zbrccjX7K9UnIbJVrghwssDgzAV">
+<div class="form-group" id="input-min">
+<input class="form-input" type="text" name="nombres" id="nombres" placeholder="Nombres (no apellidos)">
+</div>
+<div class="form-group">
+<button type="submit" class="btn btn-success" id="btn-cuantos-se-llaman-como-yo" form="cuantos-se-llaman-como-yo">Buscar cantidad</button>
+</div>
+</form>
+</div>
+</div>
+<div class="column col-4 col-md-12">
+</div>
+<div class="column col-4 col-md-12">
+</div>
+</section>
+</div>
+<footer class="bg-primary">
+<div class="container">
+<div class="columns">
+<div class="column col-6 col-mx-auto text-center">
+Eldni.com © 2018-2023
+</div>
+</div>
+</div>
+</footer>
+
+<script>
+        function disableButton(id) {
+            //INFO disable button send
+            document.querySelector(id).textContent = "🔍 Buscando...";
+            document.querySelector(id).disabled = true;
+        }
+        function writingInput(_this) {
+            if(_this.value == "") {
+                _this.parentElement.getElementsByTagName('i')[0].style.display = "none";
+                console.log(`❌ Vacio`);
+            } else {
+                _this.parentElement.getElementsByTagName('i')[0].style.display = "block";
+                //console.log(`Input value: "${_this.value}"`);
+            }
+        }
+        function clearInput(_this) {
+            _this.parentElement.getElementsByTagName('input')[0].value = "";
+            _this.parentElement.getElementsByTagName('input')[0].focus()
+            _this.style.display = "none";
+        }
+    </script>
+
+<script>
+        window.addEventListener("pageshow", () => {
+                            document.querySelector('#btn-buscar-datos-por-dni').disabled = false;
+                document.querySelector('#btn-buscar-datos-por-dni').textContent = "Buscar datos";
+                                        document.querySelector('#btn-buscar-por-dni').disabled = false;
+                document.querySelector('#btn-buscar-por-dni').textContent = "Buscar Nombres";
+                                        document.querySelector('#btn-buscar-por-dniruc10').disabled = false;
+                document.querySelector('#btn-buscar-por-dniruc10').textContent = "Buscar RUC 10";
+                                        document.querySelector('#btn-buscar-por-dniveri').disabled = false;
+                document.querySelector('#btn-buscar-por-dniveri').textContent = "Buscar dígito verificador";
+                                        document.querySelector('#btn-buscar-por-nombres').disabled = false;
+                document.querySelector('#btn-buscar-por-nombres').textContent = "Buscar DNI";
+                                        document.querySelector('#btn-buscar-por-ruc10').disabled = false;
+                document.querySelector('#btn-buscar-por-ruc10').textContent = "Buscar nombres";
+                                        document.querySelector('#btn-cuantos-se-llaman-como-yo').disabled = false;
+                document.querySelector('#btn-cuantos-se-llaman-como-yo').textContent = "Buscar nombres";
+                    });
+    </script>
+
+</body>
+</html>

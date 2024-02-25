@@ -27,4 +27,7 @@ if($response === false) {
     }
 }
 curl_close($curl);
+
+/*$persona = json_decode($response);
+var_dump($persona);*/
 ?>
