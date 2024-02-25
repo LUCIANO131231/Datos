@@ -95,7 +95,7 @@
 <small>Ingresa el DNI para saber los datos</small>
 </div>
 </div>
-<form autocomplete="on" action="../../consulta/dni.php" id="buscar-datos-por-dni" method="post" enctype="multipart/form-data" onsubmit="disableButton('#btn-buscar-datos-por-dni')">
+<form autocomplete="on" id="buscar-datos-por-dni" method="post" enctype="multipart/form-data" onsubmit="disableButton('#btn-buscar-datos-por-dni')">
 <!--input type="hidden" name="_token" value="XAID9gKn79lO3zbrccjX7K9UnIbJVrghwssDgzAV"-->
 <div class="form-group input-clear" id="input-min">
 <input class="form-input" type="text" name="dni" id="dni" placeholder="Número de DNI" oninput="writingInput(this)">
