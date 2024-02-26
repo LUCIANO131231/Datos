@@ -1,6 +1,7 @@
 <?php
 // Obtener el número de RUC por dDNI y el token
 $numeroRUC = $_POST['ruc'];
+//$numeroRUC = "10722693600";
 $token = "cGVydWRldnMucHJvZHVjdGlvbi5maXRjb2RlcnMuNjVkYzA0YmUxZTRjZmUyNGY0ZjZjODJj";
 
 // Construir la URL de la solicitud
@@ -24,4 +25,7 @@ if($response === false) {
     }
 }
 curl_close($curl);
+
+/*$persona = json_decode($response);
+var_dump($persona);*/
 ?>

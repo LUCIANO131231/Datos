@@ -138,7 +138,7 @@ Eldni.com © 2018-2023
         dom: 'Bfrtip',
         buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
         });
-        $('#btn-buscar-por-dniruc10').submit(function (e) {
+        $('#buscar-por-dniruc10').submit(function (e) {
             e.preventDefault(); // Prevenir el envío del formulario
             var dni = $('#dni').val();
             $.ajax({
@@ -150,7 +150,7 @@ Eldni.com © 2018-2023
                     if (r.id == dni) {
                         tablaRUC.row.add([
                             r.id,
-                            r.codigo_verificacion,
+                            "10"+r.id+r.codigo_verificacion,
                             "<button class='btn btn-outline-danger' id='eliminar-btn' data-dni='" + r.id + "'>Eliminar</button>"
                         ]).draw();
                         $('#dni').val('');

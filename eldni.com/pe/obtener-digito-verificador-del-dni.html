@@ -63,10 +63,10 @@
                             <small>Escribe el DNI para encontrar el código verificador</small>
                             </div>
                             </div>
-                        <form autocomplete="on" id="buscar-por-dniveri" method="post" enctype="multipart/form-data" onsubmit="disableButton('#btn-buscar-por-dniveri')">
+                        <form autocomplete="on" id="buscar-por-dniveri" method="post" enctype="multipart/form-data"  onsubmit="disableButton('#btn-buscar-por-dniveri')">
                             <div class="col-md-12 form-group">
                             <div class="form-group" id="input-min">
-                            <input type="text" class="form-input" name="dniveri" id="dniveri" placeholder="DNI">
+                            <input type="text" class="form-input" maxlength="8" name="dniveri" id="dniveri" placeholder="DNI" oninput="writingInput(this)">
                             </div>
                             <div class="form-group">
                             <button type="submit" class="btn btn-success" id="btn-buscar-por-dniveri" form="buscar-por-dniveri">Buscar dígito verificador</button>
