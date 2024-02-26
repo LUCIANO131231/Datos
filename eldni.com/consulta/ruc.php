@@ -1,14 +1,11 @@
 <?php
-// Obtener el número de DNI y el token
-$numeroDNI = $_POST['dni'];
-$token = "cGVydWRldnMucHJvZHVjdGlvbi5maXRjb2RlcnMuNjVkYzA0YmUxZTRjZmUyNGY0ZjZjODJj"; // Reemplazar con tu clave de API válida
+// Obtener el número de RUC por dDNI y el token
+$numeroRUC = $_POST['ruc'];
+$token = "cGVydWRldnMucHJvZHVjdGlvbi5maXRjb2RlcnMuNjVkYzA0YmUxZTRjZmUyNGY0ZjZjODJj";
 
 // Construir la URL de la solicitud
-$url = "https://api.perudevs.com/api/v1/dni/complete?document=" . $numeroDNI . "&key=" . $token;
-
-// Inicializar cURL
+$url = "https://api.perudevs.com/api/v1/ruc?document=" . $numeroRUC . "&key=" . $token;
 $curl = curl_init();
-
 curl_setopt($curl, CURLOPT_URL, $url);
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 
@@ -23,11 +20,8 @@ if($response === false) {
     if ($data['estado'] === true) {
         echo json_encode($data['resultado']);
     } else {
-        echo json_encode(array('error' => 'DNI no encontrado'));
+        echo json_encode(array('error' => 'RUC no encontrado'));
     }
 }
 curl_close($curl);
-
-/*$persona = json_decode($response);
-var_dump($persona);*/
 ?>

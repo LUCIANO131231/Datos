@@ -167,6 +167,8 @@ Eldni.com © 2018-2023
                             r.fecha_nacimiento,
                             "<button class='btn btn-outline-danger' id='eliminar-btn' data-dni='" + r.id + "'>Eliminar</button>"
                         ]).draw();
+                        
+                        $('#dni').val('');
                     } else {
                         alert('DNI no encontrado');
                     }
