@@ -53,8 +53,7 @@
                             <small>Escribe un RUC 10 para mostrar sus nombres</small>
                             </div>
                         </div>
-                        <form autocomplete="on" action="pe/buscar-nombres-por-ruc-10" id="buscar-por-ruc10" method="post" enctype="multipart/form-data" onsubmit="disableButton('#btn-buscar-por-ruc10')">
-                            <input type="hidden" name="_token" value="XAID9gKn79lO3zbrccjX7K9UnIbJVrghwssDgzAV">
+                        <form autocomplete="on" id="buscar-por-ruc10" method="post" enctype="multipart/form-data" onsubmit="disableButton('#btn-buscar-por-ruc10')">
                             <div class="form-group" id="input-min">
                             <input class="form-input" type="text" name="ruc10" id="ruc10" placeholder="RUC 10">
                             </div>
@@ -69,7 +68,7 @@
             <div id="column-center" class="column column-np">
                 <div class="column col-md-12">
                     <div class="col-md-12 mt-3 mx-auto" id="tabla-background">
-                        <table id="tabla_ruc" class="table"  >
+                        <table id="tabla_ruc10" class="table"  >
                             <thead class="table-light">
                                 <tr>
                                     <th>RUC</th>
@@ -124,6 +123,52 @@
         </div>
     </div>
 </footer>
+
+<script>
+    function clearInput(_this) {
+        _this.parentElement.getElementsByTagName('input')[0].value = "";
+        _this.parentElement.getElementsByTagName('input')[0].focus()
+        _this.style.display = "none";
+    }
+
+    $(document).ready(function () {
+        var tablaRUC = $('#tabla_ruc10').DataTable({
+        dom: 'Bfrtip',
+        buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
+        });
+        $('#buscar-por-ruc10').submit(function (e) {
+            e.preventDefault(); // Prevenir el envío del formulario
+            var ruc = $('#ruc10').val();
+            $.ajax({
+                url: '../consulta/ruc.php',
+                type: 'post',
+                data: {ruc: ruc}, // Envía los datos como objeto
+                dataType: 'json',
+                success: function (r) {
+                    if (r.id == ruc) {
+                        tablaRUC.row.add([
+                            r.id,
+                            r.razon_social,
+                            r.condicion,
+                            r.tipo,
+                            r.fecha_inscripcion,
+                            r.estado,
+                            "<button class='btn btn-outline-danger' id='eliminar-btn' data-ruc='" + r.id + "'>Eliminar</button>"
+                        ]).draw();
+                        $('#ruc10').val('');
+                    } else {
+                        alert('RUC no encontrado');
+                    }
+                }
+            });
+        });
+        $(document).on('click', '#eliminar-btn', function () {
+        var rucAEliminar = $(this).data('ruc10');
+        tablaRUC.row($('#eliminar-btn[data-ruc="' + rucAEliminar + '"]').closest('tr')).remove();
+        tablaRUC.draw();
+        });
+    });
+</script>
 
 </body>
 </html>

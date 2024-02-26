@@ -49,7 +49,7 @@
         </div>
     </header>
 
-<main class="container container-padding clearfix" style="margin-left: 300px;">
+<main class="container container-padding clearfix" style="margin-left: 150px;">
     <div id="div-left"><br></br>
         <section class="columns" id="dni-nombres">
 
@@ -145,7 +145,7 @@
         dom: 'Bfrtip',
         buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
         });
-        $('#btn-buscar-por-dniveri').submit(function (e) {
+        $('#buscar-por-dniveri').submit(function (e) {
             e.preventDefault(); // Prevenir el envío del formulario
             var dni = $('#dniveri').val();
             $.ajax({
@@ -169,8 +169,8 @@
         });
         $(document).on('click', '#eliminar-btn', function () {
         var dniAEliminar = $(this).data('dni');
-        tablaDNI.row($('#eliminar-btn[data-dni="' + dniAEliminar + '"]').closest('tr')).remove();
-        tablaDNI.draw();
+        tablaDIGITO.row($('#eliminar-btn[data-dni="' + dniAEliminar + '"]').closest('tr')).remove();
+        tablaDIGITO.draw();
         });
     });
 </script>
